@@ -1,0 +1,60 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1a1a2e; // Deep blue background
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Adds a subtle shadow for depth
+  
+    .navbar-logo {
+      img {
+        max-height: 40px;
+      }
+    }
+  
+    .navbar-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      align-items: center;
+  
+      .navbar-item {
+        margin: 0 1rem;
+        position: relative;
+  
+        .navbar-link {
+          text-decoration: none;
+          color: #e0e0e0; // Light gray for a soft contrast against the deep blue
+          font-weight: 500;
+          transition: all 0.3s;
+  
+          &:before {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #FFC107; // Golden color for underlining
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s;
+          }
+  
+          &:hover {
+            color: #FFC107; // Golden color to match the underline
+  
+            &:before {
+              transform: scaleX(1);
+              transform-origin: left;
+            }
+          }
+        }
+      }
+    }
+  }
+  
