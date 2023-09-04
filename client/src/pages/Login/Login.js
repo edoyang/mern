@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import './Login.scss';
 import { BackgroundVideo, Button, Gap, Input, CustomLink, Navbar } from '../../components';
@@ -25,6 +26,13 @@ const Login = () => {
         </div>
       </div>
     </div>
+=======
+import React from 'react'
+
+const Login = () => {
+  return (
+    <p>Login</p>
+>>>>>>> origin/main
   )
 }
 
