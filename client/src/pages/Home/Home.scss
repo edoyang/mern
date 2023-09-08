@@ -1,0 +1,41 @@
+.home-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh; // Ensure the content stretches to the full height of the viewport.
+  background: #f6f7f9; // A light gray background for a more modern feel.
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1300px; // Restrict maximum width for better presentation on wide screens.
+  align-items: center;
+}
+
+.search {
+  width: 100%;
+  max-width: 600px; // A wider search input for modern aesthetics.
+  position: relative; // For potential icon or additional elements inside the search.
+
+  label {
+    display: none; // Hide the label since the placeholder provides the necessary hint.
+  }
+
+  input {
+    width: 100%;
+    padding: 12px 24px; 
+    font-size: 18px; // A slightly larger font size.
+    border: none; 
+    border-radius: 30px; // Rounded borders for the input.
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); // A subtle shadow for depth.
+    transition: box-shadow 0.3s ease, transform 0.3s ease; // Transition for interaction feedback.
+
+    &:focus {
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      outline: none;
+      transform: translateY(-3px); // Slight lift when focused.
+    }
+  }
+}
