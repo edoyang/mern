@@ -1,31 +1,32 @@
 import React from 'react';
-import './Register.scss';
+import './Register.scss';  // We're making this consistent with the Login component.
 import { BackgroundVideo, Button, Gap, Input, CustomLink, Navbar } from '../../components';
-import { RegisterBg } from '../../assets'; /* Remember to export the bg files */
+import { RegisterBg, RightRegister } from '../../assets'; // Remember to export the bg files
 
 const Register = () => {
   return (
-    <div>
+    <BackgroundVideo link={RegisterBg}>
       <Navbar />
-      <div className='main-page'>
-        <BackgroundVideo link={RegisterBg}/>
-        <div className='register'>
-          <Gap height={20}/>      
-          <p className="title">Register</p>
-          <Gap height={20}/>  
-          <Input label="Full Name" placeholder="Enter Full Name" />
-          <Gap height={20}/>
-          <Input label="Email" placeholder="Enter Email"  />
-          <Gap height={20}/>
-          <Input label="Password" placeholder="Enter Password"  />
-          <Gap height={20}/>
-          <Button label="Register" />
-          <Gap height={10}/>
-          <CustomLink path="/login" classname="login "Title="Back to login"/>
+      <div className='main-page-register'>
+        <div className='left'>
+          <p>RegisterBg</p>
         </div>
-    </div>
-  </div>
+        <div className='right' style={{ '--RightRegister': `url(${RightRegister})` }}>
+          <div className="input">
+            <Input label="Full Name" placeholder="Enter Full Name" classComponent="input-container" classLabel="input-label" classInput="input-field" />
+            <Input label="Email" placeholder="Enter Email" classComponent="input-container" classLabel="input-label" classInput="input-field" />
+            <Input label="Password" placeholder="Enter Password" classComponent="input-container" classLabel="input-label" classInput="input-field" />
+            <Gap height={20}/>
+            <Button label="Register" />
+            <div className='gotologin'>
+              <p>Already have an account?</p>
+              <CustomLink path="/login" className="registerPageCustomLink" label="Back to login"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </BackgroundVideo>
   )
 }
 
-export default Register
+export default Register;

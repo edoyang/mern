@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState/*, useEffect */}from 'react';
 import { Gap, Input, Navbar } from '../../components';
 import ProductList from '../../components/molecules/ProductList';
 import './Home.scss';
@@ -17,7 +17,7 @@ const Home = () => {
   }, []);
 */
 
-const [products, setProducts] = useState([
+const [products, /*setProducts*/] = useState([
   {
     id: 1,
     name: "Red Rose",

@@ -9,3 +9,6 @@ i add some in school , dont have times to add the home and main app pages , mayb
 
 ### Day 4 ###
 add the homepage feature , probably creating the backend as soon as my main-app has been settled , oh yeah , i add some ProductList as molecules as well hehe
+
+### Day 5 ###
+REDESIGNNNN
