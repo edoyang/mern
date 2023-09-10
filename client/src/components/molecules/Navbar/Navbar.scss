@@ -1,60 +1,103 @@
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #1a1a2e; // Deep blue background
-    padding: 1rem 2rem;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Adds a subtle shadow for depth
-  
-    .navbar-logo {
-      img {
-        max-height: 40px;
-      }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1a1a2e; // Deep blue background
+  position: fixed;  
+  top: 0;
+  width: 100vw; 
+  height: 50px;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Shadow
+
+  .navbar-logo {
+    img {
+      max-height: 40px;
     }
-  
-    .navbar-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      align-items: center;
-  
-      .navbar-item {
-        margin: 0 1rem;
-        position: relative;
-  
-        .navbar-link {
-          text-decoration: none;
-          color: #e0e0e0; // Light gray for a soft contrast against the deep blue
-          font-weight: 500;
-          transition: all 0.3s;
-  
+  }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #e0e0e0; 
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .navbar-list {
+    list-style: none;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease; // Smooth transition
+
+    .navbar-item {
+      margin: 0 1rem;
+      position: relative;
+
+      .navbar-link {
+        text-decoration: none;
+        color: #e0e0e0; 
+        font-weight: 500;
+        transition: color 0.3s; // Smooth color transition
+
+        &:before {
+          content: "";
+          position: absolute;
+          bottom: -5px;
+          left: 0;
+          width: 100%;
+          height: 3px;
+          background-color: #FFC107; 
+          transform: scaleX(0);
+          transform-origin: right;
+          transition: transform 0.3s;
+        }
+
+        &:hover {
+          color: #FFC107; 
+
           &:before {
-            content: "";
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: #FFC107; // Golden color for underlining
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.3s;
-          }
-  
-          &:hover {
-            color: #FFC107; // Golden color to match the underline
-  
-            &:before {
-              transform: scaleX(1);
-              transform-origin: left;
-            }
+            transform: scaleX(1);
+            transform-origin: left;
           }
         }
       }
     }
   }
-  
+
+  @media (max-width: 780px) {
+    .menu-toggle {
+      display: block;
+      margin-right: 5%;
+    }
+
+    .navbar-list {
+      position: absolute;
+      width: 30%;
+      height: 100vh;
+      top: 50px;
+      right: 0; // Position to the right
+      background-color: #1a1a2e;
+      flex-direction: column;
+      transform: translateX(100%); // Initially hide to the right
+
+      &.open {
+        transform: translateX(0); // Show the menu when open
+      }
+
+      .navbar-item {
+        margin: 0.5rem 0;
+
+        .navbar-link {
+          padding: 0.5rem 1rem;
+        }
+      }
+    }
+  }
+}

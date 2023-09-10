@@ -1,49 +1,132 @@
-.main-page {
-    height: calc(100vh - 53px);
-    font-family: 'Arial', sans-serif;
-    color: #333;
+.main-page-login {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    padding: 0;
+    flex-direction: row !important;
+    padding: 120px 50px 50px 50px !important;
+    
+    .left {
+        display: flex;
+        justify-content: center;
+        background-color: rgba(0, 0, 0 ,0.2);
+        flex: 1;
+        height: 75vh;
+        border: 3px solid rgba(0, 0, 0, 0.2);
+        border-radius: 10px 0 0 10px;
+        border-right: none;
+    }
+
+    .right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 25vw;
+        background-color: rgb(255, 255, 255);
+        height: 75vh;
+        border: 3px solid rgba(0, 0, 0, 0.2);
+        border-radius: 0 10px 10px 0;
+        border-left: none;
+    }
+
+        .input {
+            width: 70% !important;
+            display: flex;
+            flex-direction: column;
+        
+            .input-container { 
+                display: flex;
+                flex-direction: column;
+        
+                .input-label {
+                    margin: 0;
+                    font-size: 16px;
+                    font-weight: 400;
+                    color: black;
+                }
+                .input-field {
+                    padding: 6px 10px;
+                    font-size: 12px;
+                    color: #4A4A4A;
+                    background-color: #FFF;
+                    border: 1px solid #E0E0E0;
+                    border-radius: 3px;
+                    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        
+                    &:focus {
+                        border-color: #007BFF;
+                        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+                    }
+        
+                    &::placeholder {
+                        color: #B0B0B0;
+                    }
+                }
+            }
+        }        
+            .gotoregister {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin-top: 20px;
+                
+                p {
+                    font-size: 16px;
+                    color: rgba(0, 0, 0, 0.8);
+                    font-weight: 500;
+                    text-decoration: none !important;
+                }
+
+                .loginPageCustomLink {
+                    color: blue;
+                    font-size: 16px;
+                    border-bottom: 1px solid transparent;
+                    transition: border-color 0.3s;
+                    text-decoration: none !important;
+
+                    &:hover {
+                        border-bottom: 1px solid white;
+                    }
+                }
+            }
+        }
+
+@media (max-width: 1210px) {
+    .main-page-login .right {
+        width: 30vw;
+    }
 }
 
-.login {
-    width: 500px;
-    max-width: 90%;
-    background-color: rgba(0, 0, 0, 0.2);
-    box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 20px;
-    padding: 10px;
-    backdrop-filter: blur(50px);
-    color: white;
-    
-    .title {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 2em;
-        margin-bottom: 20px;
+@media (max-width: 1090px) {
+    .main-page-login .right {
+        width: 40vw;
     }
+}
 
-    input, button {
-        transition: background-color 0.3s, transform 0.3s;
+@media (max-width: 890px) {
+    .main-page-login .right {
+        width: 45vw;
     }
+}
 
-    input:active, button:active {
-        background-color: rgba(0, 0, 0, 0.1); 
-        transform: scale(0.98);
+@media (max-width: 780px) {
+    .main-page-login .right {
+        width: 100vw;
+        border: 3px solid rgba(0, 0, 0, 0.2) !important;
+        border-radius: 10px !important;
+        background-image: var(--RightLogin);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
     }
+    .main-page-login .left {
+        display: none;
+    }
+}
 
-    @media (max-width: 600px) {
-        width: 80%;
-        border-radius: 10px;
-
-        .title {
-            font-size: 1.5em;
-        }
+@media (max-width: 550px) {
+    .main-page-login {
+        padding: 100px 20px 0px 20px !important;
+    }
+    .main-page-login .left {
+        display: none;
     }
 }
