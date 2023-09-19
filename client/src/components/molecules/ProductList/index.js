@@ -8,11 +8,12 @@ const ProductList = ({ products }) => {
       {
         products.map(product => (
           <Product 
-            key={product.id} 
-            name={product.name} 
-            price={product.price}
-            description={product.description}
-            img={product.img}
+            key={product._id} 
+            name={product.productName} 
+            price={product.productPrice}
+            description={product.productDescription}
+            img={product.productImage}
+            // You can pass other properties similarly if needed
           />
         ))
       }

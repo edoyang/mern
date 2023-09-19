@@ -1,0 +1,20 @@
+.button-group {
+    display: flex;
+    gap: 10px; // adjust this for spacing between buttons
+    margin-bottom: 20px;
+  
+    .button {
+      padding: 10px 20px; // adjust for button size
+      background-color: #007BFF; // adjust for desired color
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+  
+      &:hover {
+        background-color: #0056b3; // adjust for hover color
+      }
+    }
+  }
+  
