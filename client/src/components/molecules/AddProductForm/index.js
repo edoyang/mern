@@ -142,57 +142,6 @@ const AddProductForm = () => {
                     onChange={handleCheckboxChange}
                 />
             </label>
-    
-            <label>
-                Manufacturer:
-                <input 
-                    type="text"
-                    name="manufacturer"
-                    value={product.manufacturer}
-                    onChange={handleChange}
-                />
-            </label>
-    
-            <label>
-                Origin:
-                <input 
-                    type="text"
-                    name="origin"
-                    value={product.origin}
-                    onChange={handleChange}
-                />
-            </label>
-    
-            <label>
-                Height:
-                <input 
-                    type="text"
-                    name="height"
-                    value={product.height}
-                    onChange={handleChange}
-                />
-            </label>
-    
-            <label>
-                Width:
-                <input 
-                    type="text"
-                    name="width"
-                    value={product.width}
-                    onChange={handleChange}
-                />
-            </label>
-    
-            <label>
-                Weight:
-                <input 
-                    type="text"
-                    name="weight"
-                    value={product.weight}
-                    onChange={handleChange}
-                />
-            </label>
-    
             <button type="submit">Add Product</button>
         </form>
     );    

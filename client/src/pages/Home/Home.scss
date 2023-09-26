@@ -3,8 +3,84 @@
   flex-direction: column;
   align-items: center;
   height: 100vh; // Ensure the content stretches to the full height of the viewport.
-  background: #f6f7f9; // A light gray background for a more modern feel.
+  }
+
+  .listing {
+    font-family: 'Poppins', sans-serif;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+
+    h1 {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        width: 220px;
+        height: 140px;
+        
+        background: linear-gradient(135deg, #FFA500, #ff4242, #FFA500);
+        color: #FFFFFF;
+
+        font-size: 24px;
+        font-weight: 600;  
+        border-radius: 12px; 
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1); 
+        overflow: hidden; 
+        transition: all 0.3s ease-in-out;
+
+        &:before, 
+        &:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -150%;
+            width: 50%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: skewX(-20deg) translateY(-50%);
+            pointer-events: none;
+            animation: shimmer 3s infinite;
+            visibility: hidden; /* initially hidden */
+        }
+
+        &:after {
+            animation-delay: 2s;
+        }
+
+        &:hover {
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+
+            &:before,
+            &:after {
+                visibility: visible; /* make them visible on hover */
+            }
+        }
+        @media (max-width: 960px) {
+          width: 160px;
+          height: 110px;
+          font-size: 18px;
+      }
+    
+        @media (max-width: 768px) {
+          width: 130px;
+          height: 90px;
+          font-size: 14px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      grid-template-columns: repeat(2, 1fr);
+  }
+
+    @keyframes shimmer {
+        100% {
+            left: 250%;
+        }
+    }
 }
+
 
 .home {
   display: flex;

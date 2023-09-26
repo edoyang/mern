@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Gap, Input, Navbar } from '../../components';
 import ProductList from '../../components/molecules/ProductList';
 import './Home.scss';
+import { BgMain } from '../../assets';
+import Listing from '../../components/atoms/Listing';
 
 const Home = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    // Fetch products from the backend
     fetch('http://localhost:5000/products')
       .then(response => {
         if (!response.ok) {
@@ -16,26 +17,28 @@ const Home = () => {
         return response.json();
       })
       .then(data => {
-        // Set products state with fetched data
         setProducts(data);
       })
       .catch(error => {
         console.log('There was a problem fetching products:', error.message);
+        // Perhaps set an error state here and show a user-friendly error message on the page.
       });
-  }, []); // Empty dependency array to run only once on component mount
+  }, []);
 
   return (
-    <div>     
+    <div>
       <Navbar />
       <div className='home-page'>
         <Input className="search" label="search" placeholder="Search for flowers" />
-        <Gap height={30}/>
+        <Gap height={30} />
+        <Listing className="listing" />
         <div className='home'>
+        <Gap height={100} />
           <ProductList products={products} />
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default Home;

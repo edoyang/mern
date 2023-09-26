@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Footer, Header, Navbar } from '../../components';
+import { Footer, Gap, Header, Navbar } from '../../components';
 import AddProductForm from '../../components/molecules/AddProductForm';
 import UpdateProductForm from '../../components/molecules/UpdateProductForm'; 
 import DeleteProduct from '../../components/molecules/DeleteProduct'; // Import the DeleteProduct component
@@ -13,6 +13,7 @@ const MainApp = () => {
   return (
     <div>
       <Navbar />
+      <Gap height={50} />
       <Header />
 
       <div className="button-group">

@@ -193,58 +193,6 @@ return (
                 onChange={handleCheckboxChange}
             />
         </label>
-
-        <label>
-            Manufacturer:
-            <input 
-                type="text"
-                name="manufacturer"
-                value={selectedProduct.manufacturer}
-                onChange={handleChange}
-            />
-        </label>
-
-        <label>
-            Origin:
-            <input 
-                type="text"
-                name="origin"
-                value={selectedProduct.origin}
-                onChange={handleChange}
-            />
-        </label>
-
-        {/* Dimensions */}
-        <label>
-            Height:
-            <input 
-                type="text"
-                name="height"
-                value={selectedProduct.dimensions.height}
-                onChange={handleDimensionChange}
-            />
-        </label>
-
-        <label>
-            Width:
-            <input 
-                type="text"
-                name="width"
-                value={selectedProduct.dimensions.width}
-                onChange={handleDimensionChange}
-            />
-        </label>
-
-        <label>
-            Weight:
-            <input 
-                type="text"
-                name="weight"
-                value={selectedProduct.weight}
-                onChange={handleChange}
-            />
-        </label>
-
         <button type="submit">Update Product</button>
     </form>
 )}

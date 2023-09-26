@@ -13,7 +13,6 @@ const ProductList = ({ products }) => {
             price={product.productPrice}
             description={product.productDescription}
             img={product.productImage}
-            // You can pass other properties similarly if needed
           />
         ))
       }

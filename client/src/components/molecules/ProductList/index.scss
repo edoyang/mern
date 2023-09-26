@@ -8,6 +8,7 @@
 @media (max-width: 920px) { 
     .product-list {
         grid-template-columns: repeat(3, 1fr);
+        padding: 20px;
     }
 }
 
