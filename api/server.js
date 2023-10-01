@@ -5,13 +5,18 @@ const userRoutes = require('./routes/userRoutes');
 const { connectToDb } = require('./config/db');
 
 const app = express();
-app.use(cors());
-app.use(express.json());
 
+// Middleware
+app.use(cors());
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
+
+// Database connection
 connectToDb();
 
-app.use('/products', productRoutes); // Updated route path
-app.use('/user', userRoutes); // Updated route path
+// Routes
+app.use('/products', productRoutes);
+app.use('/user', userRoutes);
 
 app.listen(5000, () => {
     console.log('Server is running on port 5000');

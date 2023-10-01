@@ -13,14 +13,48 @@ exports.getAllProducts = async (req, res) => {
 
 // Function to add a new product
 exports.addProduct = async (req, res) => {
+  // Log the incoming request body
+  console.log(req.body);
+
   try {
-    const newProduct = new Product(req.body);
-    await newProduct.save();
-    res.status(201).json(newProduct);
+      const {
+          name,
+          price,
+          description,
+          isActive,
+          category,
+          productImage
+      } = req.body;
+
+      // Validate required fields
+      if (!name) {
+          return res.status(400).json({ message: 'Name is required' });
+      }
+      if (price === undefined || price === null) {
+          return res.status(400).json({ message: 'Price is required' });
+      }
+      if (!description) {
+          return res.status(400).json({ message: 'Description is required' });
+      }
+
+      const productData = {
+          name,
+          price,
+          description,
+          isActive,
+          category,
+          productImage  // base64 encoded image
+      };
+
+      const newProduct = new Product(productData);
+      await newProduct.save();
+      res.status(201).json(newProduct);
   } catch (err) {
-    res.status(500).json({ message: 'Error adding product', error: err });
+      console.error('Error saving product:', err);
+      res.status(500).json({ message: 'Error adding product', error: err });
   }
 };
+
 
 // Function to update a product by ID
 exports.updateProduct = async (req, res) => {

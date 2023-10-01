@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Footer, Gap, Header, Navbar } from '../../components';
-import AddProductForm from '../../components/molecules/AddProductForm';
+import ProductUpload from '../../components/molecules/UploadProduct';
 import UpdateProductForm from '../../components/molecules/UpdateProductForm'; 
 import DeleteProduct from '../../components/molecules/DeleteProduct'; // Import the DeleteProduct component
 import './MainApp.scss';
@@ -28,7 +28,7 @@ const MainApp = () => {
         </button>
       </div>
 
-      {isAddFormVisible && <AddProductForm />}
+      {isAddFormVisible && <ProductUpload />}
       {isUpdateFormVisible && <UpdateProductForm productId="some-product-id" />} {/* Adjust this as necessary */}
       {isDeleteMode && <DeleteProduct />}  {/* Render the DeleteProduct component when in delete mode */}
 

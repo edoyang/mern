@@ -9,7 +9,7 @@ const Home = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/products')
+    fetch('http://localhost:5000/products/get')
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -34,7 +34,7 @@ const Home = () => {
         <Listing className="listing" />
         <div className='home'>
         <Gap height={100} />
-          <ProductList products={products} />
+          <ProductList />
         </div>
       </div>
     </div>

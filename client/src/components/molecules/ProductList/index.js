@@ -1,23 +1,34 @@
-import React from 'react';
-import Product from '../../molecules/Product';
+import React, { useState, useEffect } from 'react';
+import { Product } from '../../atoms';
 import './index.scss';
 
-const ProductList = ({ products }) => {
+
+function ProductList() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/products/get');
+        const data = await response.json();
+        setProducts(data);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
   return (
     <div className="product-list">
-      {
-        products.map(product => (
-          <Product 
-            key={product._id} 
-            name={product.productName} 
-            price={product.productPrice}
-            description={product.productDescription}
-            img={product.productImage}
-          />
-        ))
-      }
+      {products.map(product => (
+        <div className="product-item" onClick={() => { /* Link to ProductPage with product details */ }}>
+          <Product key={product._id} product={product} />
+        </div>
+      ))}
     </div>
-  );
-};
+);
+}
 
 export default ProductList;
